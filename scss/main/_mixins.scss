@@ -20,6 +20,11 @@
 	}
 }
 
+// Strip units from values
+@function strip-unit($num) {
+ 	@return $num / ($num * 0 + 1);
+}
+
 // Calculate rems from pixels with px fallback
 // @include font-size(14);
 
@@ -85,12 +90,12 @@ $image-path: '../../img' !default;
 // @extend %clearfix;
 
 %clearfix {
-  *zoom: 1;
-  &:before, &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
+ 	*zoom: 1;
+ 	&:before, &:after {
+    	content: " ";
+    	display: table;
+  	}
+  	&:after {
+    	clear: both;
+  	}
 }

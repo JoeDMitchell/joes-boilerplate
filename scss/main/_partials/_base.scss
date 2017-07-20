@@ -1,7 +1,6 @@
-/* ---------------------------------------------------------------------
-BASE -------------------------------------------------------------------
-(Wherever this element is on the page, it should look like this)
---------------------------------------------------------------------- */
+////////////////////////////////////////
+/////////  BASE - BASE DEFAULT STYLES
+////////////////////////////////////////
 
 body {
     background: $color-lightest;
@@ -34,26 +33,23 @@ Typography (Base) ---------------------
 
 h1,h2,h3,h4,h5,h6 {
     font-weight: 700;
+    padding-bottom: $gutter;
 }
 
 h1 {
-    font-size: 3.125em; 
-    padding-bottom: 0.5em;
+    @include font-size(48);
 }
 
 h2 {
-    font-size: 2.500em;
-    padding-bottom: 0.5em;
+    @include font-size(30);
 }
 
 h3 {
-    font-size: 1.875em;
-    padding-bottom: 0.5em;
+    @include font-size(24);
 }
 
 h4, h5, h6 {
-    font-size: 1.250em;
-    padding-bottom: 0.5em;
+    @include font-size(20);
 }
 
 p {
@@ -71,7 +67,7 @@ cite {
     display: block;
     text-align: right;
     font-style: italic;
-    font-size: @include font-size(12);
+    @include font-size(12);
     margin-bottom: $gutter;
 }
 
