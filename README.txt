@@ -1,5 +1,4 @@
-Thompson Brand Partners Template Boilerplate
+Joe Mitchell's Boilerplate
 
-Author: Chris Skelton
-Editors: Joe Mitchell, Chris Skelton
-Version: 2.1.2
+Author: Joe Mitchell
+Version: 1
