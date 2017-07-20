@@ -1,0 +1,96 @@
+////////////////////////////////////////
+/////////  HELPFUL MIXINS
+////////////////////////////////////////
+
+
+// @font-face mixin
+// Order of the includes matters, and it is: normal, bold, italic, bold+italic.
+// Forked from Bourbon. https://github.com/thoughtbot/bourbon/
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+	@font-face {
+		font-family: $font-family;
+		font-weight: $weight;
+		font-style: $style;
+
+		src: url('#{$file-path}.eot');
+		src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+		     url('#{$file-path}.woff') format('woff'),
+		     url('#{$file-path}.ttf') format('truetype'),
+		     url('#{$file-path}.svg##{$font-family}') format('svg');
+	}
+}
+
+// Calculate rems from pixels with px fallback
+// @include font-size(14);
+
+@mixin font-size($px) {
+	$px: strip-unit($px);
+	$base: strip-unit($base-size);
+	font-size: ($px) + px;
+	font-size: ($px / $base) * 1rem;
+}
+
+// Media queries mixin
+// @include mq(bps);
+
+@mixin mq($canvas) {
+	@if $canvas == bpxxs {
+		@media only screen and (min-width: $bpxxs) {
+			@content;
+		}
+	} 
+	@else if $canvas == bpxs {
+		@media only screen and (min-width: $bpxs) {
+			@content;
+		}
+	}
+	@else if $canvas == bps {
+		@media only screen and (min-width: $bps) {
+			@content;
+		}
+	}
+	@else if $canvas == bpm {
+		@media only screen and (min-width: $bpm) {
+			@content;
+		}
+	}
+	@else if $canvas == bpl {
+		@media only screen and (min-width: $bpl) {
+			@content;
+		}
+	}
+	@else if $canvas == bpxl {
+		@media only screen and (min-width: $bpxl) {
+			@content;
+		}
+	}
+	@else if $canvas == bpxxl {
+		@media only screen and (min-width: $bpxxl) {
+			@content;
+		}
+	}
+}
+
+// SVG Background image mixin
+// @include background-image('icon-name');
+$image-path: '../../img' !default;
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+}
+
+// Clearfix mixin
+// @extend %clearfix;
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
